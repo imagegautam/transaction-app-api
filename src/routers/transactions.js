@@ -30,6 +30,7 @@ router.get("/", async (req, res) => {
 });
 router.post("/", async (req, res) => {
   try {
+    console.log(':::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::')
     console.log(req.body);
     const { authorization } = req.headers;
 

@@ -16,8 +16,13 @@ if (process.env.NODE_ENV !== "production") {
 
 // middlewares
 import cors from "cors";
+
 app.use(express.json());
+
+
+
 app.use(cors());
+// app.use(cors());
 
 // Routers
 import userRouter from "./src/routers/users.js";

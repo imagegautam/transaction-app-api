@@ -1,14 +1,22 @@
 import express from "express";
-import { getUserByEmail, insertUser } from "../models/user/UserModel.js";
+import { getUser, getUserByEmail, insertUser } from "../models/user/UserModel.js";
 import { compairPassword, hasPassword } from "../utils/bcryptjs.js";
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/", async(req, res) => {
   try {
+    const result = await getUser()
+    result?.length>0 ? 
     res.json({
-      status: "success",
-      message: "todo get",
-    });
+      status:"succes",
+      result
+    })
+    :
+    res.json({
+      status:"error",
+      message:"could not fetch data please try again later"
+    })
+   
   } catch (error) {
     console.log(error);
   }
